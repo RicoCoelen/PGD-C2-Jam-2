@@ -648,6 +648,57 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259800841}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &267802814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 267802815}
+  - component: {fileID: 267802816}
+  m_Layer: 0
+  m_Name: GrabPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &267802815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267802814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1307564436}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &267802816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267802814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b067658528662429dce913ff97292d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsHolding: 0
+  currentItem: {fileID: 0}
+  grabRange: 2
+  collectablesMask:
+    serializedVersion: 2
+    m_Bits: 256
+  objectHoldPosition: {x: 1, y: 0, z: 0}
+  UserKey: 32
 --- !u!1 &295979104
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,7 +970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 334477627}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Items
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,7 +1039,7 @@ GameObject:
   - component: {fileID: 459844018}
   - component: {fileID: 459844017}
   - component: {fileID: 459844016}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Item (3)
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -1779,6 +1830,57 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154212947}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1167535329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1167535330}
+  - component: {fileID: 1167535331}
+  m_Layer: 0
+  m_Name: GrabPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1167535330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167535329}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2009758023}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1167535331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167535329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b067658528662429dce913ff97292d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsHolding: 0
+  currentItem: {fileID: 0}
+  grabRange: 2
+  collectablesMask:
+    serializedVersion: 2
+    m_Bits: 256
+  objectHoldPosition: {x: -1, y: 0, z: 0}
+  UserKey: 256
 --- !u!1 &1246231820
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,7 +1893,7 @@ GameObject:
   - component: {fileID: 1246231824}
   - component: {fileID: 1246231823}
   - component: {fileID: 1246231822}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Item (2)
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -1962,7 +2064,6 @@ GameObject:
   - component: {fileID: 1307564434}
   - component: {fileID: 1307564433}
   - component: {fileID: 1307564437}
-  - component: {fileID: 1307564438}
   - component: {fileID: 1307564439}
   m_Layer: 0
   m_Name: Player1
@@ -2040,7 +2141,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -26.69, y: 9.93, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 267802815}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2057,18 +2159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
---- !u!114 &1307564438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307564432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58b067658528662429dce913ff97292d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1307564439
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2580,7 +2670,7 @@ GameObject:
   - component: {fileID: 1454612598}
   - component: {fileID: 1454612597}
   - component: {fileID: 1454612596}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Item (1)
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -3291,7 +3381,7 @@ GameObject:
   - component: {fileID: 1756733463}
   - component: {fileID: 1756733462}
   - component: {fileID: 1756733461}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Item
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -3805,7 +3895,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.7, y: -10.46, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1167535330}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3834,6 +3925,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b067658528662429dce913ff97292d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsHolding: 0
+  currentItem: {fileID: 0}
+  grabRange: 0
+  collectablesMask:
+    serializedVersion: 2
+    m_Bits: 0
+  objectHoldPosition: {x: 0, y: 0, z: 0}
+  UserKey: 0
 --- !u!54 &2009758026
 Rigidbody:
   m_ObjectHideFlags: 0
