@@ -23,6 +23,19 @@ public class Interactable : MonoBehaviour
     {
         
     }
+    public void OnFocused(Transform playerTransform)
+    {
+        isFocus = true;
+        player = playerTransform;
+        hasInteracted = false;
+    }
+
+    public void OnDefocused()
+    {
+        isFocus = false;
+        player = null;
+        hasInteracted = false;
+    }
 
     void OnDrawGizmosSelected()
     {
