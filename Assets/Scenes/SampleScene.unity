@@ -566,6 +566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 201719807}
   - component: {fileID: 201719808}
+  - component: {fileID: 201719809}
   m_Layer: 0
   m_Name: BaseCenter
   m_TagString: Untagged
@@ -606,6 +607,36 @@ MonoBehaviour:
   Totem2: {fileID: 2048358782}
   Totem3: {fileID: 2051683640}
   Totem4: {fileID: 1838958816}
+  CollectableObject: {fileID: 7240258529168873422, guid: 116bf2ec88bda964a98c7cba5c26ba67,
+    type: 3}
+  Players:
+    serializedVersion: 2
+    m_Bits: 512
+  Collectables:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &201719809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201719806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b067658528662429dce913ff97292d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsHolding: 0
+  currentItem: {fileID: 0}
+  grabRange: 0
+  collectablesMask:
+    serializedVersion: 2
+    m_Bits: 0
+  objectHoldPosition: {x: 0, y: 0, z: 0}
+  UserKey: 0
+  keypressed: 0
+  Collision: 0
 --- !u!1 &232511115
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,9 +869,10 @@ MonoBehaviour:
   grabRange: 0
   collectablesMask:
     serializedVersion: 2
-    m_Bits: 0
-  objectHoldPosition: {x: 0, y: 0, z: 0}
-  UserKey: 0
+    m_Bits: 256
+  objectHoldPosition: {x: 1.5, y: 0, z: 0}
+  UserKey: 32
+  keypressed: 0
   Collision: 1
 --- !u!1 &295979104
 GameObject:
@@ -1739,7 +1771,6 @@ GameObject:
   - component: {fileID: 897045204}
   - component: {fileID: 897045203}
   - component: {fileID: 897045202}
-  - component: {fileID: 897045201}
   m_Layer: 0
   m_Name: Altar Cube
   m_TagString: Untagged
@@ -1747,19 +1778,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &897045201
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 897045200}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &897045202
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2029,7 +2047,6 @@ GameObject:
   - component: {fileID: 1030058177}
   - component: {fileID: 1030058180}
   - component: {fileID: 1030058179}
-  - component: {fileID: 1030058178}
   m_Layer: 0
   m_Name: Altar Cube
   m_TagString: Untagged
@@ -2051,19 +2068,6 @@ Transform:
   m_Father: {fileID: 161322528}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1030058178
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030058176}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1030058179
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2442,9 +2446,10 @@ MonoBehaviour:
   grabRange: 0
   collectablesMask:
     serializedVersion: 2
-    m_Bits: 0
-  objectHoldPosition: {x: 0, y: 0, z: 0}
-  UserKey: 0
+    m_Bits: 256
+  objectHoldPosition: {x: -1.5, y: 0, z: 0}
+  UserKey: 256
+  keypressed: 0
   Collision: 1
 --- !u!1 &1246231820
 GameObject:
@@ -4607,6 +4612,7 @@ MonoBehaviour:
     m_Bits: 0
   objectHoldPosition: {x: 0, y: 0, z: 0}
   UserKey: 0
+  keypressed: 0
   Collision: 1
 --- !u!54 &2009758026
 Rigidbody:

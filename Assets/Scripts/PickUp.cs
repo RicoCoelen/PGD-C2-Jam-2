@@ -11,6 +11,7 @@ public class PickUp : MonoBehaviour
     public LayerMask collectablesMask;
     public Vector3 objectHoldPosition;
     public KeyCode UserKey;
+    public bool keypressed = false;
     public bool Collision = true;
 
     // Start is called before the first frame update
@@ -22,8 +23,15 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(UserKey))
+        
+    }
+
+    private void FixedUpdate()
+    {
+
+        if (Input.GetKeyDown(UserKey))
         {
+            keypressed = true;
             Collider[] collectablesFound = Physics.OverlapSphere(transform.position, grabRange, collectablesMask);
             Transform[] collectableTransform = CollidersToTransforms(collectablesFound);
             Transform tempitem = GetClosestCollectable(collectableTransform);
@@ -37,17 +45,18 @@ public class PickUp : MonoBehaviour
                 dropItem();
             }
         }
-    }
+        else
+        {
+            keypressed = false;
+        }
 
-    private void FixedUpdate()
-    {
         if (currentItem)
         {
             currentItem.gameObject.transform.position = transform.position + objectHoldPosition;
         }
     }
 
-    Transform[] CollidersToTransforms(Collider[] collectablesFound)
+    public Transform[] CollidersToTransforms(Collider[] collectablesFound)
     {
         Transform[] collectables = new Transform[collectablesFound.Length];
         for (int i = 0; i < collectablesFound.Length; i++)
@@ -57,7 +66,7 @@ public class PickUp : MonoBehaviour
         return collectables;
     }
 
-    Transform GetClosestCollectable(Transform[] collectable)
+    public Transform GetClosestCollectable(Transform[] collectable)
     {
         Transform tMin = null;
         float minDist = Mathf.Infinity;
@@ -74,7 +83,7 @@ public class PickUp : MonoBehaviour
         return tMin;
     }
 
-    void grabItem(Transform tempItem)
+    public void grabItem(Transform tempItem)
     {
         currentItem = tempItem.gameObject;
         if (Collision == false)
@@ -84,7 +93,7 @@ public class PickUp : MonoBehaviour
         IsHolding = true;
     }
 
-    void dropItem()
+    public void dropItem()
     {
         if (currentItem)
         {
