@@ -1,0 +1,13 @@
+diff a/Assets/Scripts/BaseScript.cs b/Assets/Scripts/BaseScript.cs	(rejected hunks)
+@@ -49,7 +49,11 @@
+                  Totem1.SetActive(true);
+                  break;
+              default:
+++<<<<<<< Updated upstream
+ +                //print("still 0");
+++=======
++               
+++>>>>>>> Stashed changes
+                  break;
+          }
+      }

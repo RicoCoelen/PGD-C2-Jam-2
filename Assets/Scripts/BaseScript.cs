@@ -11,6 +11,9 @@ public class BaseScript : MonoBehaviour
     public GameObject Totem2;
     public GameObject Totem3;
     public GameObject Totem4;
+    public GameObject CollectableObject;
+    public LayerMask Players;
+    public LayerMask Collectables;
 
     // Start is called before the first frame update
     void Start()
@@ -46,19 +49,69 @@ public class BaseScript : MonoBehaviour
                 Totem1.SetActive(true);
                 break;
             default:
-                //print("still 0");
                 break;
         }
     }
 
-    void addResource()
+    private void FixedUpdate()
     {
+        Collider[] playersFound = Physics.OverlapSphere(baseCenter.transform.position, baseRange, Players);
+        if (playersFound.Length > 0)
+        {
+            Transform[] playerTransform = GetComponent<PickUp>().CollidersToTransforms(playersFound);
+            Transform goPlayer = GetComponent<PickUp>().GetClosestCollectable(playerTransform);
+            PickUp closestPlayer = gameObject.GetComponent<PickUp>();
 
+            
+
+            if (closestPlayer != null)
+            {
+
+                 //&& closestPlayer.keypressed == true
+                if (closestPlayer.IsHolding == false)
+                {
+                    baseStatus--;
+                    GameObject temp = Instantiate(CollectableObject);
+                    closestPlayer.grabItem(temp.transform);
+                }
+
+                if (closestPlayer.IsHolding == true)
+                {
+                    baseStatus++;
+                    GameObject temp = closestPlayer.GetComponent<PickUp>().currentItem;
+                    closestPlayer.gameObject.GetComponent<PickUp>().dropItem();
+                    Destroy(temp);
+                }
+            }
+        }
     }
 
-    void removeResource()
+    void addResource(GameObject resource)
     {
+        if (baseStatus > 0 && 5 < baseStatus)
+        {
+            //check if collectable == player
+            if (baseStatus < 5)
+            {
+             
+            }
+            // player kan erin worden gezet
+            baseStatus++;
+        }
+    }
 
+    void removeResource(GameObject resource)
+    {
+        if (baseStatus > 0)
+        {
+            //check if collectable == player
+            if (baseStatus > 4)
+            {
+
+            }
+            Destroy(resource);
+            baseStatus--;
+        }
     }
 
     void OnDrawGizmosSelected()
