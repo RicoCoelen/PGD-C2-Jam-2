@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
     Vector3 velocity;
     public float speed = 10;
+    public float carrySpeed = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -58,8 +59,15 @@ public class Movement : MonoBehaviour
             }
         }
 
+        if (transform.GetChild(0).gameObject.GetComponent<PickUp>().IsHolding)
+        {
+            velocity *= carrySpeed * Time.deltaTime;
+        }
+        else
+        {
+            velocity *= speed * Time.deltaTime;
+        }
 
-        velocity *= speed * Time.deltaTime;
         transform.position += velocity;
     }
 }
