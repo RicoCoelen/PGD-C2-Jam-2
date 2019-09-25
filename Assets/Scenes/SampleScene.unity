@@ -835,12 +835,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsHolding: 0
   currentItem: {fileID: 0}
-  grabRange: 0
+  grabRange: 2
   collectablesMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   objectHoldPosition: {x: 0, y: 0, z: 0}
-  UserKey: 0
+  UserKey: 304
   Collision: 1
 --- !u!1 &295979104
 GameObject:
@@ -2439,12 +2439,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsHolding: 0
   currentItem: {fileID: 0}
-  grabRange: 0
+  grabRange: 2
   collectablesMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   objectHoldPosition: {x: 0, y: 0, z: 0}
-  UserKey: 0
+  UserKey: 303
   Collision: 1
 --- !u!1 &1246231820
 GameObject:
