@@ -7,8 +7,6 @@ public class Movement : MonoBehaviour
     Vector3 velocity;
     public float speed = 10;
 
-    public Interactable focus;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -62,42 +60,7 @@ public class Movement : MonoBehaviour
         velocity *= speed * Time.deltaTime;
         transform.position += velocity;
 
-        if (Input.GetKey("space"))
-        {
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
-
-                if (interactable != null)
-                {
-                    SetFocus(interactable);
-                }
-                // Check if we hit a colletable or interactable
-                // If we did set it as our focus
-                // Stop Focussing
-            }
-        }
-    }
-    public void SetFocus(Interactable newFocus)
-    {
-        if (newFocus != focus)
-        {
-            if (focus != null)
-            {
-                focus.OnDefocused();
-            }
-            focus = newFocus;
-            motor.FollowTarget(newFocus);
-        }
-        newFocus.OnFocused(transform);
-    }
-    void RemoveFocus()
-    {
-        if (focus != null)
-        {
-            focus.OnDefocused();
-        }
-        focus = null;
-        motor.StopFollowingTarget();
+        //Detect if player is within radius of item.
+        
     }
 }

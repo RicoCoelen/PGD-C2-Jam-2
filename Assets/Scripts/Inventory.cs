@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
     public delegate void OnItemChanged();
     public OnItemChanged OnItemChangedCallback;
 
-    public int space = 20;
+    public int space = 2;
     public List<Item> items = new List<Item>();
 
     public bool Add(Item item)
@@ -42,11 +42,13 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public void Remove(Item item)
+    public bool Remove(Item item)
     {
         items.Remove(item);
 
         if (OnItemChangedCallback != null)
             OnItemChangedCallback.Invoke();
+
+        return true;
     }
 }
