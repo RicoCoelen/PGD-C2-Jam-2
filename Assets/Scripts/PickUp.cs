@@ -23,15 +23,18 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(UserKey) == true)
+        {
+            keypressed = true;
+        }
+
     }
 
     private void FixedUpdate()
     {
-
-        if (Input.GetKeyDown(UserKey))
+        if (keypressed == true)
         {
-            keypressed = true;
+            
             Collider[] collectablesFound = Physics.OverlapSphere(transform.position, grabRange, collectablesMask);
             Transform[] collectableTransform = CollidersToTransforms(collectablesFound);
             Transform tempitem = GetClosestCollectable(collectableTransform);
@@ -45,15 +48,13 @@ public class PickUp : MonoBehaviour
                 dropItem();
             }
         }
-        else
-        {
-            keypressed = false;
-        }
 
         if (currentItem)
         {
             currentItem.gameObject.transform.position = transform.position + objectHoldPosition;
         }
+
+        keypressed = false;
     }
 
     public Transform[] CollidersToTransforms(Collider[] collectablesFound)

@@ -60,27 +60,26 @@ public class BaseScript : MonoBehaviour
         {
             Transform[] playerTransform = GetComponent<PickUp>().CollidersToTransforms(playersFound);
             Transform goPlayer = GetComponent<PickUp>().GetClosestCollectable(playerTransform);
-            PickUp closestPlayer = gameObject.GetComponent<PickUp>();
+            PickUp closestPlayer = goPlayer.GetChild(0).gameObject.GetComponent<PickUp>();
 
             
 
             if (closestPlayer != null)
             {
-
-                 //&& closestPlayer.keypressed == true
-                if (closestPlayer.IsHolding == false)
+                if (closestPlayer.IsHolding == false && closestPlayer.keypressed == true)
                 {
-                    baseStatus--;
-                    GameObject temp = Instantiate(CollectableObject);
+                    // fix to get box
+                    GameObject temp = Instantiate(CollectableObject, new Vector3(0, 0, 0), Quaternion.identity);
                     closestPlayer.grabItem(temp.transform);
+                    baseStatus--;
                 }
 
-                if (closestPlayer.IsHolding == true)
+                if (closestPlayer.IsHolding == true && closestPlayer.keypressed == true)
                 {
                     baseStatus++;
-                    GameObject temp = closestPlayer.GetComponent<PickUp>().currentItem;
-                    closestPlayer.gameObject.GetComponent<PickUp>().dropItem();
-                    Destroy(temp);
+                    Destroy(closestPlayer.currentItem);
+                    closestPlayer.currentItem = null;
+                    closestPlayer.dropItem();
                 }
             }
         }
