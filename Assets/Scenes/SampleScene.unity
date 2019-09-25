@@ -866,7 +866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsHolding: 0
   currentItem: {fileID: 0}
-  grabRange: 0
+  grabRange: 1.41
   collectablesMask:
     serializedVersion: 2
     m_Bits: 256
@@ -2443,7 +2443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsHolding: 0
   currentItem: {fileID: 0}
-  grabRange: 0
+  grabRange: 1.56
   collectablesMask:
     serializedVersion: 2
     m_Bits: 256
