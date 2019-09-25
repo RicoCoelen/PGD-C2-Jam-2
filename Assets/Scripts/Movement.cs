@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
     Vector3 velocity;
     public float speed = 10;
 
+    public Interactable focus;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,9 +59,9 @@ public class Movement : MonoBehaviour
                 velocity.x += 1;
             }
         }
-
-
         velocity *= speed * Time.deltaTime;
         transform.position += velocity;
+
+
     }
 }
