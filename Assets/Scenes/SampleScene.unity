@@ -566,6 +566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 201719807}
   - component: {fileID: 201719808}
+  - component: {fileID: 201719809}
   m_Layer: 0
   m_Name: BaseCenter
   m_TagString: Untagged
@@ -606,6 +607,36 @@ MonoBehaviour:
   Totem2: {fileID: 2048358782}
   Totem3: {fileID: 2051683640}
   Totem4: {fileID: 1838958816}
+  CollectableObject: {fileID: 7240258529168873422, guid: 116bf2ec88bda964a98c7cba5c26ba67,
+    type: 3}
+  Players:
+    serializedVersion: 2
+    m_Bits: 512
+  Collectables:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &201719809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201719806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b067658528662429dce913ff97292d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsHolding: 0
+  currentItem: {fileID: 0}
+  grabRange: 0
+  collectablesMask:
+    serializedVersion: 2
+    m_Bits: 0
+  objectHoldPosition: {x: 0, y: 0, z: 0}
+  UserKey: 0
+  keypressed: 0
+  Collision: 1
 --- !u!1 &232511115
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,8 +870,9 @@ MonoBehaviour:
   collectablesMask:
     serializedVersion: 2
     m_Bits: 256
-  objectHoldPosition: {x: 0, y: 0, z: 0}
+  objectHoldPosition: {x: 0, y: 0, z: -1}
   UserKey: 304
+  keypressed: 0
   Collision: 1
 --- !u!1 &295979104
 GameObject:
@@ -1655,6 +1687,87 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575490576}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &667967899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 667967900}
+  - component: {fileID: 667967902}
+  - component: {fileID: 667967901}
+  m_Layer: 0
+  m_Name: BaseCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &667967900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667967899}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
+  m_LocalPosition: {x: -29.6, y: 10.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1474610074}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &667967901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667967899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b067658528662429dce913ff97292d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsHolding: 0
+  currentItem: {fileID: 0}
+  grabRange: 0
+  collectablesMask:
+    serializedVersion: 2
+    m_Bits: 0
+  objectHoldPosition: {x: 0, y: 0, z: 0}
+  UserKey: 0
+  keypressed: 0
+  Collision: 1
+--- !u!114 &667967902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667967899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 534cea63b682e0a48982b7d2c4a7bbed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStatus: 0
+  baseCenter: {fileID: 667967899}
+  baseRange: 4.38
+  Totem1: {fileID: 2002716614}
+  Totem2: {fileID: 1345018543}
+  Totem3: {fileID: 1704318426}
+  Totem4: {fileID: 165082094}
+  CollectableObject: {fileID: 7240258529168873422, guid: 116bf2ec88bda964a98c7cba5c26ba67,
+    type: 3}
+  Players:
+    serializedVersion: 2
+    m_Bits: 512
+  Collectables:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &720445639
 GameObject:
   m_ObjectHideFlags: 0
@@ -2321,7 +2434,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167456945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: -0.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 562305122}
@@ -2443,8 +2556,9 @@ MonoBehaviour:
   collectablesMask:
     serializedVersion: 2
     m_Bits: 256
-  objectHoldPosition: {x: 0, y: 0, z: 0}
+  objectHoldPosition: {x: 0, y: 0, z: -1}
   UserKey: 303
+  keypressed: 0
   Collision: 1
 --- !u!1 &1246231820
 GameObject:
@@ -2727,6 +2841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  carrySpeed: 4
 --- !u!114 &1307564438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3448,6 +3563,7 @@ Transform:
   - {fileID: 161322528}
   - {fileID: 321809945}
   - {fileID: 1409734311}
+  - {fileID: 667967900}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
@@ -4587,6 +4703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  carrySpeed: 4
 --- !u!114 &2009758025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4607,6 +4724,7 @@ MonoBehaviour:
     m_Bits: 0
   objectHoldPosition: {x: 0, y: 0, z: 0}
   UserKey: 0
+  keypressed: 0
   Collision: 1
 --- !u!54 &2009758026
 Rigidbody:
