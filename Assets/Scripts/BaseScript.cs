@@ -46,7 +46,7 @@ public class BaseScript : MonoBehaviour
                 Totem1.SetActive(true);
                 break;
             default:
-                print("still 0");
+                //print("still 0");
                 break;
         }
     }
