@@ -11,6 +11,7 @@ public class PickUp : MonoBehaviour
     public LayerMask collectablesMask;
     public Vector3 objectHoldPosition;
     public KeyCode UserKey;
+    public bool Collision = true;
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +37,14 @@ public class PickUp : MonoBehaviour
                 dropItem();
             }
         }
+    }
 
+    private void FixedUpdate()
+    {
         if (currentItem)
         {
             currentItem.gameObject.transform.position = transform.position + objectHoldPosition;
         }
-
     }
 
     Transform[] CollidersToTransforms(Collider[] collectablesFound)
@@ -74,7 +77,10 @@ public class PickUp : MonoBehaviour
     void grabItem(Transform tempItem)
     {
         currentItem = tempItem.gameObject;
-        currentItem.gameObject.GetComponent<BoxCollider>().enabled = false;
+        if (Collision == false)
+        {
+            SetAllCollidersStatus(false, currentItem.gameObject);
+        }
         IsHolding = true;
     }
 
@@ -82,10 +88,18 @@ public class PickUp : MonoBehaviour
     {
         if (currentItem)
         {
-            currentItem.gameObject.GetComponent<BoxCollider>().enabled = true;
+           SetAllCollidersStatus(true, currentItem.gameObject);
         }
         currentItem = null;
         IsHolding = false;
+    }
+
+    public void SetAllCollidersStatus(bool active, GameObject tempObject)
+    {
+        foreach (Collider c in tempObject.GetComponents<Collider>())
+        {
+            c.enabled = active;
+        }
     }
 
     void OnDrawGizmosSelected()
@@ -93,5 +107,4 @@ public class PickUp : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, grabRange);
     }
-
 }
